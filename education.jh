@@ -1,5 +1,41 @@
 
 /** Education project **/
+enum DayEnum {
+	MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY
+}
+
+enum StudyLangEnum {
+	UZBEK,
+    KOREAN,
+    RUSSIAN
+}
+
+enum GenderEnum {
+	MALE,
+    FEMALE
+}
+
+enum PhotoTypeEnum {
+	PASSPORT,
+    PHOTO,
+    CERTIFICATE,
+    MAIN_PAGE
+}
+
+enum AppStatusEnum {
+	DRAFT,
+    NEW,
+    ACCEPTED,
+    CANCELLED,
+    BLOCKED
+}
+
+
 entity User {
 	
 }
@@ -118,46 +154,6 @@ relationship ManyToOne {
     Application{group} to Groups,
     Attachment {application} to Application
 }
-
-
-
-
-enum DayEnum {
-	MONDAY,
-    TUESDAY,
-    WEDNESDAY,
-    THURSDAY,
-    FRIDAY,
-    SATURDAY
-}
-
-enum StudyLangEnum {
-	UZBEK,
-    KOREAN,
-    RUSSIAN
-}
-
-enum GenderEnum {
-	MALE,
-    FEMALE
-}
-
-enum PhotoTypeEnum {
-	PASSPORT,
-    PHOTO,
-    CERTIFICATE,
-    MAIN_PAGE
-}
-
-enum AppStatusEnum {
-	DRAFT,
-    NEW,
-    ACCEPTED,
-    CANCELLED,
-    BLOCKED
-}
-
-
 /* Расписание page
 */
 
