@@ -1,0 +1,117 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-attachment-heading"
+        data-cy="AttachmentCreateUpdateHeading"
+        jhiTranslate="educationAppFinalApp.attachment.home.createOrEditLabel"
+      >
+        Create or edit a Attachment
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="educationAppFinalApp.attachment.originalFileName" for="field_originalFileName"
+            >Original File Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="originalFileName"
+            id="field_originalFileName"
+            data-cy="originalFileName"
+            formControlName="originalFileName"
+          />
+          <div
+            *ngIf="
+              editForm.get('originalFileName')!.invalid &&
+              (editForm.get('originalFileName')!.dirty || editForm.get('originalFileName')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('originalFileName')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="educationAppFinalApp.attachment.fileName" for="field_fileName">File Name</label>
+          <input type="text" class="form-control" name="fileName" id="field_fileName" data-cy="fileName" formControlName="fileName" />
+          <div *ngIf="editForm.get('fileName')!.invalid && (editForm.get('fileName')!.dirty || editForm.get('fileName')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('fileName')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="educationAppFinalApp.attachment.path" for="field_path">Path</label>
+          <input type="text" class="form-control" name="path" id="field_path" data-cy="path" formControlName="path" />
+          <div *ngIf="editForm.get('path')!.invalid && (editForm.get('path')!.dirty || editForm.get('path')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('path')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="educationAppFinalApp.attachment.photoType" for="field_photoType">Photo Type</label>
+          <select class="form-control" name="photoType" formControlName="photoType" id="field_photoType" data-cy="photoType">
+            <option [ngValue]="null">{{ 'educationAppFinalApp.PhotoTypeEnum.null' | translate }}</option>
+            <option *ngFor="let photoTypeEnum of photoTypeEnumValues" [value]="photoTypeEnum">
+              {{ 'educationAppFinalApp.PhotoTypeEnum.' + photoTypeEnum | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="educationAppFinalApp.attachment.application" for="field_application">Application</label>
+          <select
+            class="form-control"
+            id="field_application"
+            data-cy="application"
+            name="application"
+            formControlName="application"
+            [compareWith]="compareApplication"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="applicationOption" *ngFor="let applicationOption of applicationsSharedCollection">
+              {{ applicationOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

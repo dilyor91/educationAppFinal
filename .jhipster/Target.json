@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20221202102951",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "target",
+  "fields": [
+    {
+      "fieldName": "titleUz",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "titleRu",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contentUz",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "contentRu",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Target",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

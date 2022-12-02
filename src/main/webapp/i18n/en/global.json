@@ -7,6 +7,15 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "announcement": "Announcement",
+        "target": "Target",
+        "task": "Task",
+        "participiant": "Participiant",
+        "period": "Period",
+        "course": "Course",
+        "groups": "Groups",
+        "application": "Application",
+        "attachment": "Attachment",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

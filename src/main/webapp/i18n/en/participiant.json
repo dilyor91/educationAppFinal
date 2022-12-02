@@ -1,0 +1,28 @@
+{
+  "educationAppFinalApp": {
+    "participiant": {
+      "home": {
+        "title": "Participiants",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Participiant",
+        "createOrEditLabel": "Create or edit a Participiant",
+        "notFound": "No Participiants found"
+      },
+      "created": "A new Participiant is created with identifier {{ param }}",
+      "updated": "A Participiant is updated with identifier {{ param }}",
+      "deleted": "A Participiant is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Participiant {{ id }}?"
+      },
+      "detail": {
+        "title": "Participiant"
+      },
+      "id": "ID",
+      "titleUz": "Title Uz",
+      "titleRu": "Title Ru",
+      "contentUz": "Content Uz",
+      "contentRu": "Content Ru",
+      "status": "Status"
+    }
+  }
+}

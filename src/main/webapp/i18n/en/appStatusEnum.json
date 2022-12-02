@@ -1,0 +1,12 @@
+{
+  "educationAppFinalApp": {
+    "AppStatusEnum": {
+      "null": "",
+      "DRAFT": "DRAFT",
+      "NEW": "NEW",
+      "ACCEPTED": "ACCEPTED",
+      "CANCELLED": "CANCELLED",
+      "BLOCKED": "BLOCKED"
+    }
+  }
+}

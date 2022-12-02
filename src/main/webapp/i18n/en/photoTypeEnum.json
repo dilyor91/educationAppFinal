@@ -1,0 +1,11 @@
+{
+  "educationAppFinalApp": {
+    "PhotoTypeEnum": {
+      "null": "",
+      "PASSPORT": "PASSPORT",
+      "PHOTO": "PHOTO",
+      "CERTIFICATE": "CERTIFICATE",
+      "MAIN_PAGE": "MAIN_PAGE"
+    }
+  }
+}

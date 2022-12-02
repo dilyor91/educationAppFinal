@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="participiant">
+      <h2 data-cy="participiantDetailsHeading"><span jhiTranslate="educationAppFinalApp.participiant.detail.title">Participiant</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ participiant.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.participiant.titleUz">Title Uz</span></dt>
+        <dd>
+          <span>{{ participiant.titleUz }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.participiant.titleRu">Title Ru</span></dt>
+        <dd>
+          <span>{{ participiant.titleRu }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.participiant.contentUz">Content Uz</span></dt>
+        <dd>
+          <span>{{ participiant.contentUz }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.participiant.contentRu">Content Ru</span></dt>
+        <dd>
+          <span>{{ participiant.contentRu }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.participiant.status">Status</span></dt>
+        <dd>
+          <span>{{ participiant.status }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/participiant', participiant.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
