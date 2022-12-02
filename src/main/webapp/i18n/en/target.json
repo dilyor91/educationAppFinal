@@ -1,0 +1,28 @@
+{
+  "educationAppFinalApp": {
+    "target": {
+      "home": {
+        "title": "Targets",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Target",
+        "createOrEditLabel": "Create or edit a Target",
+        "notFound": "No Targets found"
+      },
+      "created": "A new Target is created with identifier {{ param }}",
+      "updated": "A Target is updated with identifier {{ param }}",
+      "deleted": "A Target is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Target {{ id }}?"
+      },
+      "detail": {
+        "title": "Target"
+      },
+      "id": "ID",
+      "titleUz": "Title Uz",
+      "titleRu": "Title Ru",
+      "contentUz": "Content Uz",
+      "contentRu": "Content Ru",
+      "status": "Status"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "educationAppFinalApp": {
+    "application": {
+      "home": {
+        "title": "Applications",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Application",
+        "createOrEditLabel": "Create or edit a Application",
+        "notFound": "No Applications found"
+      },
+      "created": "A new Application is created with identifier {{ param }}",
+      "updated": "A Application is updated with identifier {{ param }}",
+      "deleted": "A Application is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Application {{ id }}?"
+      },
+      "detail": {
+        "title": "Application"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "middleName": "Middle Name",
+      "birthday": "Birthday",
+      "gender": "Gender",
+      "passportNo": "Passport No",
+      "nationality": "Nationality",
+      "occupation": "Occupation",
+      "address": "Address",
+      "mobPhone": "Mob Phone",
+      "homePhone": "Home Phone",
+      "notificationMethod": "Notification Method",
+      "certificateNo": "Certificate No",
+      "certificateGivenDate": "Certificate Given Date",
+      "status": "Status",
+      "course": "Course",
+      "groups": "Groups"
+    }
+  }
+}

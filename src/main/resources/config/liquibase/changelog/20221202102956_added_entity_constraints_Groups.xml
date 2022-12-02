@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Groups.
+    -->
+    <changeSet id="20221202102956-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="groups"
+                                 constraintName="fk_groups__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="period_id"
+                                 baseTableName="groups"
+                                 constraintName="fk_groups__period_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="period"/>
+
+        <addForeignKeyConstraint baseColumnNames="course_id"
+                                 baseTableName="groups"
+                                 constraintName="fk_groups__course_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="course"/>
+    </changeSet>
+</databaseChangeLog>

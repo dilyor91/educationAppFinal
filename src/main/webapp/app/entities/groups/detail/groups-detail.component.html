@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="groups">
+      <h2 data-cy="groupsDetailsHeading"><span jhiTranslate="educationAppFinalApp.groups.detail.title">Groups</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ groups.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.groups.groupNo">Group No</span></dt>
+        <dd>
+          <span>{{ groups.groupNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.groups.startHour">Start Hour</span></dt>
+        <dd>
+          <span>{{ groups.startHour | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.groups.endHour">End Hour</span></dt>
+        <dd>
+          <span>{{ groups.endHour | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.groups.capacity">Capacity</span></dt>
+        <dd>
+          <span>{{ groups.capacity }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.groups.reservedPlace">Reserved Place</span></dt>
+        <dd>
+          <span>{{ groups.reservedPlace }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.groups.status">Status</span></dt>
+        <dd>
+          <span>{{ groups.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.groups.full">Full</span></dt>
+        <dd>
+          <span>{{ groups.full }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.groups.user">User</span></dt>
+        <dd>
+          <span>{{ groups.user?.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.groups.period">Period</span></dt>
+        <dd>
+          <div *ngIf="groups.period">
+            <a [routerLink]="['/period', groups.period.id, 'view']">{{ groups.period.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.groups.course">Course</span></dt>
+        <dd>
+          <div *ngIf="groups.course">
+            <a [routerLink]="['/course', groups.course.id, 'view']">{{ groups.course.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/groups', groups.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

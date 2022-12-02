@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-participiant-heading"
+        data-cy="ParticipiantCreateUpdateHeading"
+        jhiTranslate="educationAppFinalApp.participiant.home.createOrEditLabel"
+      >
+        Create or edit a Participiant
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="educationAppFinalApp.participiant.titleUz" for="field_titleUz">Title Uz</label>
+          <input type="text" class="form-control" name="titleUz" id="field_titleUz" data-cy="titleUz" formControlName="titleUz" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="educationAppFinalApp.participiant.titleRu" for="field_titleRu">Title Ru</label>
+          <input type="text" class="form-control" name="titleRu" id="field_titleRu" data-cy="titleRu" formControlName="titleRu" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="educationAppFinalApp.participiant.contentUz" for="field_contentUz">Content Uz</label>
+          <input type="text" class="form-control" name="contentUz" id="field_contentUz" data-cy="contentUz" formControlName="contentUz" />
+          <div *ngIf="editForm.get('contentUz')!.invalid && (editForm.get('contentUz')!.dirty || editForm.get('contentUz')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('contentUz')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="educationAppFinalApp.participiant.contentRu" for="field_contentRu">Content Ru</label>
+          <input type="text" class="form-control" name="contentRu" id="field_contentRu" data-cy="contentRu" formControlName="contentRu" />
+          <div *ngIf="editForm.get('contentRu')!.invalid && (editForm.get('contentRu')!.dirty || editForm.get('contentRu')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('contentRu')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="educationAppFinalApp.participiant.status" for="field_status">Status</label>
+          <input type="checkbox" class="form-check" name="status" id="field_status" data-cy="status" formControlName="status" />
+          <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

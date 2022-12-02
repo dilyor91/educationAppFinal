@@ -1,0 +1,100 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="application">
+      <h2 data-cy="applicationDetailsHeading"><span jhiTranslate="educationAppFinalApp.application.detail.title">Application</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ application.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ application.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ application.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.middleName">Middle Name</span></dt>
+        <dd>
+          <span>{{ application.middleName }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.birthday">Birthday</span></dt>
+        <dd>
+          <span>{{ application.birthday | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.gender">Gender</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'educationAppFinalApp.GenderEnum.' + application.gender }}">{{ application.gender }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.passportNo">Passport No</span></dt>
+        <dd>
+          <span>{{ application.passportNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.nationality">Nationality</span></dt>
+        <dd>
+          <span>{{ application.nationality }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.occupation">Occupation</span></dt>
+        <dd>
+          <span>{{ application.occupation }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.address">Address</span></dt>
+        <dd>
+          <span>{{ application.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.mobPhone">Mob Phone</span></dt>
+        <dd>
+          <span>{{ application.mobPhone }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.homePhone">Home Phone</span></dt>
+        <dd>
+          <span>{{ application.homePhone }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.notificationMethod">Notification Method</span></dt>
+        <dd>
+          <span>{{ application.notificationMethod }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.certificateNo">Certificate No</span></dt>
+        <dd>
+          <span>{{ application.certificateNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.certificateGivenDate">Certificate Given Date</span></dt>
+        <dd>
+          <span>{{ application.certificateGivenDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'educationAppFinalApp.AppStatusEnum.' + application.status }}">{{ application.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.course">Course</span></dt>
+        <dd>
+          <div *ngIf="application.course">
+            <a [routerLink]="['/course', application.course.id, 'view']">{{ application.course.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="educationAppFinalApp.application.groups">Groups</span></dt>
+        <dd>
+          <div *ngIf="application.groups">
+            <a [routerLink]="['/groups', application.groups.id, 'view']">{{ application.groups.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/application', application.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
