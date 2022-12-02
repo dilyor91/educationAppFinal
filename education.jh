@@ -1,0 +1,187 @@
+
+/** Education project **/
+entity User {
+	
+}
+
+
+/* Текст обьявления  о наборе слушателей page
+*/
+entity Announcement {
+    titleUz String,
+    titleRu String,
+    contentUz String required,
+    contentRu String required,
+    status Boolean required
+}
+
+
+/* Цели page
+*/
+entity Target {
+    titleUz String,
+    titleRu String,
+    contentUz String required,
+    contentRu String required,
+    status Boolean required
+}
+
+
+/* Задачи page
+*/
+entity Task {
+    titleUz String,
+    titleRu String,
+    contentUz String required,
+    contentRu String required,
+    status Boolean required
+}
+
+/* Участники page
+*/
+entity Participiant {
+    titleUz String,
+    titleRu String,
+    contentUz String required,
+    contentRu String required,
+    status Boolean required
+}
+
+
+/* Периоды page
+*/
+entity Period {
+    nameUz String required,
+    nameRu String required,
+    startDate Instant required,
+	endDate Instant required,
+    status Boolean required
+}
+
+/* Курсы page
+*/
+entity Course {
+    nameUz String required,
+    nameRu String required,
+    subNameUz String required,
+    subNameRu String required,
+    firstCourse Boolean required,
+    status Boolean required
+}
+
+/* Группы page
+*/
+entity Groups {
+	groupNo String required,
+    startHour Instant required,
+    endHour Instant required,
+    capacity Integer required,
+    reservedPlace Integer required,
+    status Boolean required,
+    full Boolean 
+}
+/* Заявки page
+*/
+entity Application {
+	firstName String required,
+	lastName String required,
+    middleName String required,
+    birthday Instant required,
+    gender GenderEnum required,
+    passportNo String required,
+    nationality String required,
+    occupation String required,
+    address String required,
+    mobPhone String required,
+    homePhone String,
+    notificationMethod String,
+    certificateNo String,
+    certificateGivenDate Instant,
+    status AppStatusEnum
+}
+/* Attachment entity for storage files
+*/
+entity Attachment{
+	originalFileName String required,
+    fileName String required,
+    path String required,
+    photoType PhotoTypeEnum
+}
+
+
+
+relationship ManyToOne {
+	Groups{user} to User,
+    Groups{period} to Period,
+    Groups{course} to Course,
+    Application{course} to Course,
+    Application{group} to Groups,
+    Attachment {application} to Application
+}
+
+
+
+
+enum DayEnum {
+	MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY
+}
+
+enum StudyLangEnum {
+	UZBEK,
+    KOREAN,
+    RUSSIAN
+}
+
+enum GenderEnum {
+	MALE,
+    FEMALE
+}
+
+enum PhotoTypeEnum {
+	PASSPORT,
+    PHOTO,
+    CERTIFICATE,
+    MAIN_PAGE
+}
+
+enum AppStatusEnum {
+	DRAFT,
+    NEW,
+    ACCEPTED,
+    CANCELLED,
+    BLOCKED
+}
+
+
+/* Расписание page
+*/
+
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+paginate Period, Course, Group, Application  with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+
+
+
+
+
+
+
+
+
+
+
+
+
